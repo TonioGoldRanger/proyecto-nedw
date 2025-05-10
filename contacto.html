@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Librería El Saber</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo-global.css">
+  <link rel="stylesheet" href="contacto.css">
+</head>
+<body>
+  <header>
+    <h1>Contáctanos</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="sugerencias.html">Sugerencias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="formulario-container">
+    <h2>Escríbenos</h2>
+    <form id="form-contacto">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label>Tipo de consulta:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="tipo" value="compra" required> Compra</label>
+        <label><input type="radio" name="tipo" value="sugerencia"> Sugerencia</label>
+        <label><input type="radio" name="tipo" value="otro"> Otro</label>
+      </div>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="acepto" required> Acepto la política de privacidad.</label>
+      </div>
+
+      <div class="botones">
+        <button type="submit">Enviar</button>
+        <button type="reset">Limpiar</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Librería El Saber</p>
+  </footer>
+
+  <script src="contacto.js"></script>
+</body>
+</html>

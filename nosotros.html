@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosotros | Librería El Saber</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo-global.css">
+  <link rel="stylesheet" href="nosotros.css">
+</head>
+<body>
+  <header>
+    <h1>Sobre Nosotros</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="sugerencias.html">Sugerencias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="nosotros-container">
+    <blockquote class="frase">
+      “Una librería no vende solo libros, vende mundos posibles.” – Desconocido
+    </blockquote>
+
+    <h2>Nuestra Historia</h2>
+    <p id="historia" onclick="resaltarParrafo()">
+      Librería El Saber nació en 1995 con la misión de llevar el conocimiento y la cultura a todos los rincones. Durante más de 25 años, hemos acompañado a lectores de todas las edades con libros que inspiran, enseñan y entretienen. Nos hemos consolidado como un punto de encuentro para amantes de la literatura, la ciencia y el arte.
+    </p>
+
+    <div class="mision-vision">
+      <div class="bloque">
+        <h3>Misión</h3>
+        <p>Promover el amor por la lectura proporcionando una cuidadosa selección de libros y un servicio personalizado.</p>
+      </div>
+      <div class="bloque">
+        <h3>Visión</h3>
+        <p>Ser un referente cultural y educativo en nuestra comunidad, fomentando la lectura como herramienta de transformación.</p>
+      </div>
+    </div>
+
+    <div class="valores">
+      <h3>Nuestros Valores</h3>
+      <ul>
+        <li>📘 Pasión por los libros</li>
+        <li>🤝 Cercanía con nuestros lectores</li>
+        <li>🎓 Compromiso educativo</li>
+        <li>🌍 Inclusión y diversidad</li>
+      </ul>
+    </div>
+
+    <div class="equipo">
+      <h3>Conoce a nuestro equipo</h3>
+      <img src="images/libreria.jpeg" alt="Nuestro equipo" onclick="cambiarImagen(this)">
+    </div>
+
+    <div class="premios">
+      <h3>Reconocimientos</h3>
+      <p>🏅 2020 – Premio a la Promoción Cultural Local</p>
+      <p>📖 2023 – Reconocimiento por Fomento a la Lectura (Ministerio de Cultura)</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Librería El Saber</p>
+  </footer>
+
+  <script src="nosotros.js"></script>
+</body>
+</html>

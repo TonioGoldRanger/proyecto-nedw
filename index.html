@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Librería El Saber</title>
+  <link rel="stylesheet" href="estilo-global.css">
+</head>
+<body>
+  <header>
+    <h1>Librería El Saber</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="sugerencias.html">Sugerencias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <p class="bienvenida">
+      Bienvenido a nuestra librería. Aquí no solo encontrarás los mejores títulos de literatura, ciencia, arte y más, sino también un espacio dedicado al descubrimiento del conocimiento, la imaginación y el placer de leer. Cada libro que ofrecemos ha sido cuidadosamente seleccionado para enriquecer tu vida, inspirarte y acompañarte en cada etapa de tu camino lector.
+    </p>
+
+    <div class="video-bienvenida">
+      <div class="contenedor-video">
+        <video autoplay loop muted playsinline>
+          <source src="videos/books.mp4" type="video/mp4">
+          Tu navegador no soporta video.
+        </video>
+        <div class="slogan-video">Inspira tu mente, enciende tu imaginación</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lo más vendido</h2>
+    <div class="carrusel-libros">
+      <button onclick="anteriorLibro()">&#8592;</button>
+
+      <div class="libro-activo" id="libroCarrusel">
+        <img src="images/cien-anios-soledad.jpg" alt="Cien años de soledad">
+        <p class="titulo-libro">Cien años de soledad</p>
+        <p class="descripcion-libro">Una saga familiar mágica y poética escrita por Gabriel García Márquez.</p>
+      </div>
+
+      <button onclick="siguienteLibro()">&#8594;</button>
+    </div>
+  </section>
+
+  <section class="seccion-mision">
+    <h3><span class="icono-libro">📚</span> Nuestra misión</h3>
+    <p>En <strong>Librería El Saber</strong> trabajamos con pasión para ofrecer:</p>
+    <ul class="lista-mision">
+      <li><strong>Selección curada:</strong> Libros cuidadosamente elegidos para todos los gustos y edades.</li>
+      <li><strong>Atención personalizada:</strong> Recomendaciones hechas por lectores para lectores.</li>
+      <li><strong>Fomento de la lectura:</strong> Espacios y eventos que promueven la cultura lectora.</li>
+      <li><strong>Acceso a la educación:</strong> Material académico y científico al alcance de todos.</li>
+      <li><strong>Compromiso con el conocimiento:</strong> Cada libro es una puerta abierta a nuevos mundos.</li>
+    </ul>
+  </section>
+  
+
+  <<section class="enlaces-utiles">
+    <h3><span class="icono-link">🔗</span> Enlaces útiles</h3>
+    <ul class="lista-enlaces">
+      <li><a href="#libroCarrusel">Ir al carrusel de libros</a></li>
+      <li><a href="catalogo.html">Ver catálogo completo</a></li>
+      <li><a href="https://www.unesco.org/es/books" target="_blank">Sitio externo de libros (UNESCO)</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Librería El Saber</p>
+  </footer>
+
+  <script src="funciones.js"></script>
+</body>
+</html>

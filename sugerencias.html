@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sugerencias</title>
+</head>
+<body>
+  <h1>Formulario de sugerencias</h1>
+  <form action="procesar.php" method="POST">
+    <label>Nombre: <input type="text" name="nombre" required></label><br>
+    <label>Género preferido:</label><br>
+    <input type="radio" name="genero" value="Ficción">Ficción<br>
+    <input type="radio" name="genero" value="Ciencia">Ciencia<br>
+    <label>¿Qué formatos prefieres?</label><br>
+    <input type="checkbox" name="formato[]" value="Físico">Físico<br>
+    <input type="checkbox" name="formato[]" value="Digital">Digital<br>
+    <label>Selecciona tu país:
+      <select name="pais">
+        <option value="MX">México</option>
+        <option value="AR">Argentina</option>
+        <option value="ES">España</option>
+      </select>
+    </label><br>
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+</html>
