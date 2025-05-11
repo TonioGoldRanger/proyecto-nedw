@@ -1,49 +1,54 @@
-function cambiarImagen() {
-    const img = document.getElementById("imagenLibro");
-    img.src = img.src.includes("libro1.jpg") ? "imagenes/libro2.jpg" : "imagenes/libro1.jpg";
-  }
-  
+let libros = [];
+let indice = 0;
 
-  const libros = [
-    {
-      imagen: "images/cien-anios-soledad.jpg",
-      titulo: "Cien años de soledad",
-      descripcion: "Una saga familiar mágica y poética escrita por Gabriel García Márquez."
-    },
-    {
-      imagen: "images/1984.jpg",
-      titulo: "1984",
-      descripcion: "Distopía política de George Orwell sobre vigilancia y represión estatal."
-    },
-    {
-      imagen: "images/prince.jpg",
-      titulo: "El Principito",
-      descripcion: "Un cuento filosófico lleno de simbolismo sobre la amistad y la vida."
-    }
-  ];
-  
-  let indice = 0;
-  
-  function mostrarLibro(index) {
-    const contenedor = document.getElementById("libroCarrusel");
-    contenedor.innerHTML = `
-      <img src="${libros[index].imagen}" alt="${libros[index].titulo}">
-      <p class="titulo-libro">${libros[index].titulo}</p>
-      <p class="descripcion-libro">${libros[index].descripcion}</p>
-    `;
+function mostrarLibro(index) {
+  const contenedor = document.getElementById("libroCarrusel");
+  const libro = libros[index];
+
+  if (!libro) {
+    contenedor.innerHTML = `<p>Error al mostrar el libro.</p>`;
+    return;
   }
-  
-  function siguienteLibro() {
-    indice = (indice + 1) % libros.length;
-    mostrarLibro(indice);
-  }
-  
-  function anteriorLibro() {
-    indice = (indice - 1 + libros.length) % libros.length;
-    mostrarLibro(indice);
-  }
-  
-  // Mostrar el primer libro al cargar
-  document.addEventListener("DOMContentLoaded", () => {
-    mostrarLibro(indice);
-  });
+
+  contenedor.innerHTML = `
+    <img src="${libro.ruta_imagen}" alt="${libro.titulo}">
+    <p class="titulo-libro">${libro.titulo}</p>
+    <p class="descripcion-libro">${libro.sinopsis}</p>
+  `;
+}
+
+function siguienteLibro() {
+  if (libros.length === 0) return;
+  indice = (indice + 1) % libros.length;
+  mostrarLibro(indice);
+}
+
+function anteriorLibro() {
+  if (libros.length === 0) return;
+  indice = (indice - 1 + libros.length) % libros.length;
+  mostrarLibro(indice);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("funciones.php")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Error HTTP: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Datos recibidos desde PHP:", data);
+      libros = data;
+
+      if (libros.length > 0) {
+        mostrarLibro(indice);
+      } else {
+        document.getElementById("libroCarrusel").innerHTML = "<p>No hay libros disponibles.</p>";
+      }
+    })
+    .catch(err => {
+      console.error("Error al cargar el carrusel de libros:", err);
+      document.getElementById("libroCarrusel").innerHTML = "<p>Error al cargar los libros.</p>";
+    });
+});
