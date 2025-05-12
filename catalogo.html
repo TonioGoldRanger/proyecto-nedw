@@ -23,7 +23,10 @@
 
    <section class="barra-busqueda">
     <form id="form-busqueda" method="get">
-      <input type="text" name="buscar" id="campo-busqueda" placeholder="Buscar libros, autores o editoriales" />
+      <div class="campo-busqueda-con-borrar">
+        <input type="text" name="buscar" id="campo-busqueda" placeholder="Buscar libros, autores o editoriales" />
+        <button type="button" id="btn-limpiar" title="Limpiar búsqueda">&times;</button>
+      </div>
       <button type="submit">Buscar</button>
     </form>
   </section>

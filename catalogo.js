@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("libros-container");
   const formBusqueda = document.getElementById("form-busqueda");
+  const inputBusqueda = document.getElementById("campo-busqueda");
+  const btnLimpiar = document.getElementById("btn-limpiar");
 
   function cargarLibros(query = "") {
     fetch(`catalogo.php?buscar=${encodeURIComponent(query)}`)
@@ -15,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         libros.forEach(libro => {
           const item = document.createElement("div");
           item.className = "libro-item";
-
           item.innerHTML = `
             <img src="${libro.RUTA_IMAGEN}" alt="${libro.TITULO}">
             <h3>${libro.TITULO}</h3>
@@ -29,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <p><strong>Disponibilidad:</strong> ${libro.CANTIDAD_DISPONIBLE} unidades</p>
             </div>
           `;
-
           container.appendChild(item);
         });
       })
@@ -39,13 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // Carga inicial
   cargarLibros();
 
-  // Manejo del formulario de búsqueda
+  // Buscar con submit
   formBusqueda.addEventListener("submit", e => {
     e.preventDefault();
-    const query = document.getElementById("campo-busqueda").value;
+    const query = inputBusqueda.value.trim();
     cargarLibros(query);
   });
+
+  // Limpiar búsqueda con la X
+  btnLimpiar.addEventListener("click", () => {
+    inputBusqueda.value = "";
+    inputBusqueda.focus();
+    cargarLibros(); // vuelve a mostrar todos
+  });
 });
+
 
 function verDetalle(boton) {
   const detalle = boton.nextElementSibling;
