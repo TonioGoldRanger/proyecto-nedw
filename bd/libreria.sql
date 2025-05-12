@@ -2,16 +2,17 @@
 --                          Canchola Cruz Fernando
 --                          Villalpando Aguilar Jesica
 -- @Fecha de creación:      08/05/2025
--- @Descripción:            DDL adaptado a MySQL
+-- @Descripción:            Base de Datos de una Librería
 
 -- CREA LA BD
 
+DROP DATABASE IF EXISTS eq3libreria;
 CREATE DATABASE eq3libreria;
 USE eq3libreria;
 
 -- USUARIO Y PRIVILEGIOS
 
-DROP USER 'admin_libreria'@'localhost';
+DROP USER IF EXISTS 'admin_libreria'@'localhost';
 CREATE USER 'admin_libreria'@'localhost' IDENTIFIED BY 'admin_libreria';
 GRANT CREATE, SELECT, INSERT, UPDATE, DELETE ON *.* TO 'admin_libreria'@'localhost';
 FLUSH PRIVILEGES;
@@ -48,21 +49,34 @@ CREATE TABLE LIBRO(
     FOREIGN KEY (EDITORIAL_ID) REFERENCES EDITORIAL(EDITORIAL_ID)
 );
 
-CREATE TABLE SUGERENCIA(
-    SUGERENCIA_ID      BIGINT         NOT NULL AUTO_INCREMENT,
-    NOMBRE             VARCHAR(50)    NOT NULL,
-    CORREO_CONTACTO    VARCHAR(50)    NOT NULL,
-    FECHA_ENVIO        TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    TEXTO              VARCHAR(500)   NOT NULL,
-    PRIMARY KEY (SUGERENCIA_ID)
+CREATE TABLE SOLICITUD_CONTACTO(
+    SOLICITUD_CONTACTO_ID      BIGINT           NOT NULL AUTO_INCREMENT,
+    TIPO_SOLICITUD             CHAR(1)          NOT NULL,
+    NOMBRE_COMPLETO            VARCHAR(50)      NOT NULL,
+    CORREO_CONTACTO            VARCHAR(50)      NOT NULL,
+    FECHA                      TIMESTAMP        NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    TEXTO                      VARCHAR(1000)    NOT NULL,
+    PRIMARY KEY (SOLICITUD_CONTACTO_ID)
+);
+
+CREATE TABLE EVENTO(
+    EVENTO_ID               BIGINT              NOT NULL AUTO_INCREMENT,
+    NOMBRE                  VARCHAR(25)         NOT NULL,
+    DESCRIPCION             VARCHAR(250)        NOT NULL,
+    RUTA_IMAGEN             VARCHAR(150)        NOT NULL,
+    FECHA_INICIO            TIMESTAMP           NOT NULL,
+    FECHA_FIN               TIMESTAMP           NOT NULL,
+    PRIMARY KEY (EVENTO_ID)
+
 );
 
 -- DML
 
-DELETE FROM SUGERENCIA;
 DELETE FROM LIBRO;
 DELETE FROM EDITORIAL;
-DELETE FROM SUGERENCIA;
+DELETE FROM AUTOR;
+DELETE FROM SOLICITUD_CONTACTO;
+DELETE FROM EVENTO;
 
 INSERT INTO AUTOR(NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO) VALUES
     ('Gabriel', 'García', 'Márquez'),
