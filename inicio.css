@@ -1,0 +1,234 @@
+/* BIENVENIDA */
+.bienvenida {
+  color: #1b5e20;
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  line-height: 1.8;
+}
+
+/* VIDEO DE BIENVENIDA */
+.video-bienvenida {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 900px;
+  padding: 1rem;
+}
+
+.contenedor-video {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.contenedor-video video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.slogan-video {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(46, 125, 50, 0.85);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* CARRUSEL DE LIBROS */
+.carrusel-libros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.carrusel-libros button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.carrusel-libros button:hover {
+  background-color: #1b5e20;
+}
+
+.libro-activo {
+  text-align: center;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 380px;
+  justify-content: center;
+}
+
+.libro-activo img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* SECCIÓN MISIÓN */
+.seccion-mision {
+  background-color: #f1f8e9;
+  border-left: 6px solid #2e7d32;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  color: #3e4e50;
+}
+
+.seccion-mision h3 {
+  color: #2e7d32;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.icono-libro {
+  font-size: 1.6rem;
+}
+
+.lista-mision {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lista-mision li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #c5e1a5;
+  line-height: 1.5;
+}
+
+.lista-mision li:last-child {
+  border-bottom: none;
+}
+
+/* ENLACES ÚTILES */
+.enlaces-utiles {
+  background-color: #dcedc8;
+  border-left: 6px solid #7cb342;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.enlaces-utiles h3 {
+  color: #33691e;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icono-link {
+  font-size: 1.4rem;
+}
+
+.lista-enlaces {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.lista-enlaces li {
+  margin: 0.5rem 0;
+}
+
+.lista-enlaces a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #2e7d32;
+  transition: color 0.3s ease;
+}
+
+.lista-enlaces a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}
+
+/* LIBROS EN REJILLA */
+.libros-mas-vendidos, .libro, .libro img, .libro p {
+  all: unset;
+}
+
+.libros-mas-vendidos {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.libro {
+  width: 180px;
+  text-align: center;
+}
+
+.libro img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.libro img:hover {
+  transform: scale(1.05);
+}
+
+.titulo-libro {
+  font-weight: bold;
+  color: #2e7d32;
+  margin: 0.5rem 0 0.3rem;
+  font-family: 'Merriweather', serif;
+}
+
+.descripcion-libro {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+/* ENLACES EN SECCIONES */
+section a {
+  color: #00796b;
+  font-weight: bold;
+}
+
+section a:hover {
+  text-decoration: underline;
+}

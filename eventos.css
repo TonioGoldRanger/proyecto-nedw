@@ -1,3 +1,4 @@
+/* CONTENEDOR PRINCIPAL DE EVENTOS */
 .evento {
   padding: 2rem;
   max-width: 1000px;
@@ -5,6 +6,7 @@
   text-align: center;
 }
 
+/* GRID DE EVENTOS */
 .eventos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -12,6 +14,7 @@
   margin-top: 2rem;
 }
 
+/* TARJETA DE EVENTO */
 .evento-item {
   width: 350px;
   background-color: #f0f8e6;
@@ -26,6 +29,7 @@
   transform: scale(1.02);
 }
 
+/* IMAGEN DEL EVENTO */
 .evento-imagen img {
   width: 200px;
   height: 300px;
@@ -34,10 +38,12 @@
   margin-bottom: 1rem;
 }
 
+/* DETALLES DEL EVENTO */
 .evento-detalles {
   text-align: left;
 }
 
+/* TÍTULO DEL EVENTO */
 .evento-titulo {
   font-family: 'Merriweather', serif;
   color: #2e7d32;
@@ -46,6 +52,7 @@
   font-weight: bold;
 }
 
+/* TEXTO DEL DETALLE */
 .evento-detalles p {
   margin: 0.5rem 0;
   font-size: 0.95rem;
