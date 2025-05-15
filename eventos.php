@@ -9,22 +9,22 @@ if ($conn->connect_error) {
 
 $sql = "
 SELECT 
-    ruta_imagen,
-    titulo,
-    sinopsis
-FROM libro
-LIMIT 3
+    NOMBRE,
+    DESCRIPCION,
+    RUTA_IMAGEN,
+    FECHA_INICIO,
+    FECHA_FIN
+FROM EVENTO
+ORDER BY FECHA_INICIO
 ";
 
 $resultado = $conn->query($sql);
 
-$libros = [];
+$eventos = [];
 
-if ($resultado && $resultado->num_rows > 0) {
-    while ($libro = $resultado->fetch_assoc()) {
-        $libros[] = $libro;
-    }
+while ($evento = $resultado->fetch_assoc()) {
+    $eventos[] = $evento;
 }
 
-echo json_encode($libros, JSON_UNESCAPED_UNICODE);
+echo json_encode($eventos, JSON_UNESCAPED_UNICODE);
 ?>

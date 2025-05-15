@@ -30,7 +30,8 @@ CREATE TABLE AUTOR(
 CREATE TABLE EDITORIAL(
     EDITORIAL_ID    SMALLINT        NOT NULL AUTO_INCREMENT,
     NOMBRE          VARCHAR(25)     NOT NULL,
-    PRIMARY KEY (EDITORIAL_ID)
+    PRIMARY KEY (EDITORIAL_ID),
+    UNIQUE (NOMBRE)
 );
 
 CREATE TABLE LIBRO(
@@ -52,31 +53,27 @@ CREATE TABLE LIBRO(
 CREATE TABLE SOLICITUD_CONTACTO(
     SOLICITUD_CONTACTO_ID      BIGINT           NOT NULL AUTO_INCREMENT,
     TIPO_SOLICITUD             CHAR(1)          NOT NULL,
-    NOMBRE_COMPLETO            VARCHAR(50)      NOT NULL,
-    CORREO_CONTACTO            VARCHAR(50)      NOT NULL,
+    NOMBRE                     VARCHAR(50)      NOT NULL,
+    EMAIL                      VARCHAR(50)      NOT NULL,
     FECHA                      TIMESTAMP        NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    TEXTO                      VARCHAR(1000)    NOT NULL,
-    PRIMARY KEY (SOLICITUD_CONTACTO_ID)
+    MENSAJE                    VARCHAR(1000)    NOT NULL,
+    PRIMARY KEY (SOLICITUD_CONTACTO_ID),
+    CHECK (TIPO_SOLICITUD IN('C', 'S', 'R', 'O'))
 );
 
 CREATE TABLE EVENTO(
     EVENTO_ID               BIGINT              NOT NULL AUTO_INCREMENT,
     NOMBRE                  VARCHAR(25)         NOT NULL,
-    DESCRIPCION             VARCHAR(250)        NOT NULL,
+    DESCRIPCION             VARCHAR(500)        NOT NULL,
     RUTA_IMAGEN             VARCHAR(150)        NOT NULL,
     FECHA_INICIO            TIMESTAMP           NOT NULL,
     FECHA_FIN               TIMESTAMP           NOT NULL,
-    PRIMARY KEY (EVENTO_ID)
+    PRIMARY KEY (EVENTO_ID),
+    CHECK (FECHA_INICIO < FECHA_FIN)
 
 );
 
 -- DML
-
-DELETE FROM LIBRO;
-DELETE FROM EDITORIAL;
-DELETE FROM AUTOR;
-DELETE FROM SOLICITUD_CONTACTO;
-DELETE FROM EVENTO;
 
 INSERT INTO AUTOR(NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO) VALUES
     ('Gabriel', 'García', 'Márquez'),
@@ -95,9 +92,25 @@ INSERT INTO EDITORIAL(NOMBRE) VALUES
     ('Thienemann');
 
 INSERT INTO LIBRO(TITULO, SINOPSIS, GENERO, ANIO_PUBLICACION, PRECIO, CANTIDAD_DISPONIBLE, RUTA_IMAGEN, AUTOR_ID, EDITORIAL_ID) VALUES
-    ('Cien años de soledad', 'La historia de varias generaciones de la familia Buendía en el mítico pueblo de Macondo.', 'Realismo mágico', 1967, 199.99, 10, 'images/cien-anios-soledad.jpg', 1, 1),
-    ('1984', 'Distopía donde el Gran Hermano controla la vida de todos los ciudadanos.', 'Distopía', 1949, 149.99, 15, 'images/1984.jpg', 2, 2),
-    ('El Principito', 'Un niño proveniente de otro planeta enseña valiosas lecciones sobre la vida y el amor.', 'Fábula', 1943, 99.99, 12, 'images/prince.jpg', 3, 3),
-    ('Fahrenheit 451', 'En un mundo donde los libros están prohibidos, un bombero cuestiona su rol.', 'Ciencia ficción', 1953, 129.99, 8, 'images/fahrenheit.jpg', 4, 4),
-    ('Hamlet', 'La tragedia de un príncipe atormentado por la traición y la venganza.', 'Tragedia', 1603, 119.99, 5, 'images/hamlet.jpg', 5, 5),
-    ('Momo', 'Una niña enfrenta a los hombres grises que roban el tiempo a las personas.', 'Fantasía', 1973, 109.99, 7, 'images/momo.jpeg', 6, 6);
+    ('Cien años de soledad', 'La historia de varias generaciones de la familia Buendía en el mítico pueblo de Macondo.', 'Realismo mágico', 1967, 199.99, 10, 'images/libros/cien-anios-soledad.jpg', 1, 1),
+    ('1984', 'Distopía donde el Gran Hermano controla la vida de todos los ciudadanos.', 'Distopía', 1949, 149.99, 15, 'images/libros/1984.jpg', 2, 2),
+    ('El Principito', 'Un niño proveniente de otro planeta enseña valiosas lecciones sobre la vida y el amor.', 'Fábula', 1943, 99.99, 12, 'images/libros/prince.jpg', 3, 3),
+    ('Fahrenheit 451', 'En un mundo donde los libros están prohibidos, un bombero cuestiona su rol.', 'Ciencia ficción', 1953, 129.99, 8, 'images/libros/fahrenheit.jpg', 4, 4),
+    ('Hamlet', 'La tragedia de un príncipe atormentado por la traición y la venganza.', 'Tragedia', 1603, 119.99, 5, 'images/libros/hamlet.jpg', 5, 5),
+    ('Momo', 'Una niña enfrenta a los hombres grises que roban el tiempo a las personas.', 'Fantasía', 1973, 109.99, 7, 'images/libros/momo.jpeg', 6, 6);
+
+INSERT INTO EVENTO (NOMBRE, DESCRIPCION, RUTA_IMAGEN, FECHA_INICIO, FECHA_FIN) VALUES
+(
+    'Lectura con Alex Grijelmo: Cazador de Estilemas',
+    'El reconocido autor Alex Grijelmo nos visita para leer y comentar su obra "Cazador de Estilemas". Habrá firma de libros, charla abierta con el autor y un espacio de preguntas para el público. ¡Una oportunidad increible para amantes de su novela!',
+    'images/eventos/cazador-estilemas.jpg',
+    '2025-06-07',
+    '2025-06-10'
+),
+(
+    'Semana del Libro 2025',
+    'Celebra el Día del Libro con nosotros en una semana llena de actividades: talleres de escritura, lecturas en voz alta, cuentacuentos para niños, descuentos especiales y más. Una fiesta literaria para toda la familia.',
+    'images/eventos/dia-del-libro.jpg',
+    '2025-06-16',
+    '2025-06-22'
+);

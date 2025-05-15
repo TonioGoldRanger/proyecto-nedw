@@ -209,11 +209,17 @@ section a:hover {
   background-color: #2e7d32;
   color: white;
   border: none;
-  padding: 0.6rem 1rem;
+  width: 50px;
+  height: 50px;
   font-size: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
+
 
 .carrusel-libros button:hover {
   background-color: #1b5e20;
