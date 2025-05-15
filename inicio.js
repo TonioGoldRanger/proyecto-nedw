@@ -30,7 +30,7 @@ function anteriorLibro() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("funciones.php")
+  fetch("inicio.php")
     .then(response => {
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);

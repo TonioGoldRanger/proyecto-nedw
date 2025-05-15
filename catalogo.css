@@ -1,3 +1,4 @@
+/* GENERAL */
 body {
   font-family: 'Lato', sans-serif;
   background-color: #e1f4c3;
@@ -10,6 +11,7 @@ h1, h2, h3 {
   font-family: 'Merriweather', serif;
 }
 
+/* ENCABEZADO */
 header {
   background-color: #2e7d32;
   color: white;
@@ -17,7 +19,7 @@ header {
   text-align: center;
 }
 
-/* Contenedor de la sección del catálogo */
+/* CATÁLOGO */
 .catalogo {
   padding: 2rem;
   max-width: 1000px;
@@ -32,7 +34,7 @@ header {
   margin-top: 2rem;
 }
 
-/* Estilo de cada tarjeta de libro */
+/* TARJETAS DE LIBRO */
 .libro-item {
   width: 300px;
   background-color: #f0f8e6;
@@ -67,7 +69,7 @@ header {
   color: #555;
 }
 
-/* Botón "Ver más / menos" individual */
+/* BOTÓN "VER MÁS / MENOS" */
 .libro-item button {
   display: inline-block;
   padding: 0.5rem 1.2rem;
@@ -85,7 +87,7 @@ header {
   background-color: #2e7d32;
 }
 
-/* Sección de detalles adicionales (oculta por defecto) */
+/* DETALLES ADICIONALES DEL LIBRO */
 .detalle-libro {
   display: none;
   margin-top: 1rem;
@@ -97,6 +99,7 @@ header {
   text-align: left;
 }
 
+/* BARRA DE BÚSQUEDA */
 .barra-busqueda {
   background-color: #e1f4c3;
   padding: 1rem;
@@ -116,7 +119,7 @@ header {
   display: inline-block;
 }
 
-/* Campo de texto de búsqueda */
+/* CAMPO DE TEXTO DE BÚSQUEDA */
 #campo-busqueda {
   padding: 0.6rem 1rem;
   padding-right: 2rem;
@@ -133,7 +136,7 @@ header {
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-/* Botón para limpiar texto del buscador */
+/* BOTÓN LIMPIAR TEXTO */
 #btn-limpiar {
   position: absolute;
   right: 8px;
@@ -168,6 +171,7 @@ header {
   background-color: #2e7d32;
 }
 
+/* PIE DE PÁGINA */
 footer {
   background-color: #2e7d32;
   color: white;
