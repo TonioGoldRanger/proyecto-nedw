@@ -30,7 +30,7 @@ function anteriorLibro() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("inicio.php")
+  fetch("php/index.php")
     .then(response => {
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then(data => {
-      console.log("Datos recibidos desde PHP:", data);
+      console.log("Datos:", data);
       libros = data;
 
       if (libros.length > 0) {

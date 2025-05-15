@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function cargarLibros(query = "") {
-    fetch(`catalogo.php?buscar=${encodeURIComponent(query)}`)
+    fetch(`../php/catalogo.php?buscar=${encodeURIComponent(query)}`)
       .then(response => response.json())
       .then(libros => {
         librosGlobal = libros;
