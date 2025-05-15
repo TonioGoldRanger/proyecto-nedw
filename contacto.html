@@ -15,9 +15,9 @@
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
       </ul>
     </nav>
   </header>
@@ -25,7 +25,7 @@
   <section class="formulario-container">
     <h2>Escríbenos</h2>
     <form id="form-contacto">
-      <label for="nombre">Nombre completo:</label>
+      <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required>
 
       <label for="email">Correo electrónico:</label>
@@ -33,8 +33,9 @@
 
       <label>Tipo de consulta:</label>
       <div class="radio-group">
-        <label><input type="radio" name="tipo" value="compra" required> Compra</label>
+        <label><input type="radio" id="tipo" name="tipo" value="consulta" required> Consulta</label>
         <label><input type="radio" name="tipo" value="sugerencia"> Sugerencia</label>
+        <label><input type="radio" name="tipo" value="reclamo"> Reclamo</label>
         <label><input type="radio" name="tipo" value="otro"> Otro</label>
       </div>
 

@@ -1,6 +1,5 @@
 <?php
 header('Content-Type: application/json');
-
 $conn = new mysqli("localhost", "admin_libreria", "admin_libreria", "eq3libreria");
 
 if ($conn->connect_error) {
