@@ -101,16 +101,16 @@ INSERT INTO LIBRO(TITULO, SINOPSIS, GENERO, ANIO_PUBLICACION, PRECIO, CANTIDAD_D
 
 INSERT INTO EVENTO (NOMBRE, DESCRIPCION, RUTA_IMAGEN, FECHA_INICIO, FECHA_FIN) VALUES
 (
-    'Lectura con Alex Grijelmo: Cazador de Estilemas',
-    'El reconocido autor Alex Grijelmo nos visita para leer y comentar su obra "Cazador de Estilemas". Habrá firma de libros, charla abierta con el autor y un espacio de preguntas para el público. ¡Una oportunidad increible para amantes de su novela!',
-    'images/eventos/cazador-estilemas.jpg',
+    'Lectura con Álex Grijelmo: Cazador de Estilemas',
+    'El reconocido autor Álex Grijelmo nos visita para leer y comentar su obra "Cazador de Estilemas". Habrá firma de libros, charla abierta con el autor y un espacio de preguntas para el público. ¡Una oportunidad increible para amantes de su novela!',
+    '../images/eventos/cazador-estilemas.jpg',
     '2025-06-07',
     '2025-06-10'
 ),
 (
     'Semana del Libro 2025',
     'Celebra el Día del Libro con nosotros en una semana llena de actividades: talleres de escritura, lecturas en voz alta, cuentacuentos para niños, descuentos especiales y más. Una fiesta literaria para toda la familia.',
-    'images/eventos/dia-del-libro.jpg',
+    '../images/eventos/dia-del-libro.jpg',
     '2025-06-16',
     '2025-06-22'
 );
