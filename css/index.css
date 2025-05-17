@@ -1,3 +1,19 @@
+/* AUTORES */
+.autores {
+  position: absolute;
+  top: 5px;
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 /* BIENVENIDA */
 .bienvenida {
   color: #1b5e20;
