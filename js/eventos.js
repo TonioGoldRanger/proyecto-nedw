@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function cargarEventos() {
-    fetch("eventos.php")
+    fetch("../php/eventos.php")
       .then(response => response.json())
       .then(eventos => {
         if (eventos.length === 0) {

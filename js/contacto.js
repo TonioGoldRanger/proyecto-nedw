@@ -26,7 +26,7 @@ document.getElementById("form-contacto").addEventListener("submit", function(e) 
   formData.append("email", email);
   formData.append("mensaje", mensaje);
 
-  fetch("contacto.php", {
+  fetch("../php/contacto.php", {
     method: "POST",
     body: formData
   })
