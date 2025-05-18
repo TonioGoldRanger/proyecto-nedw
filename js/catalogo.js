@@ -1,19 +1,30 @@
+// @Autor(es):          Arias Quintero Luis Antonio
+//                      Canchola Cruz Fernando
+//                      Villalpando Aguilar Jesica
+// @Fecha de creación:  12/05/2025
+// @Descripción:        Define el JS para depslegar todos los libros del cátalogo de la base
+//                      de datos. Además implementa un buscador.
+
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("libros-container");
-  const formBusqueda = document.getElementById("form-busqueda");
-  const inputBusqueda = document.getElementById("campo-busqueda");
-  const btnLimpiar = document.getElementById("btn-limpiar");
+  // Define las referencias a los elementos del DOM
+  const container = document.getElementById("libros-container");    // Sección de libros
+  const formBusqueda = document.getElementById("form-busqueda");    // Sección de búsqueda
+  const inputBusqueda = document.getElementById("campo-busqueda");  // Barra de búsqueda
+  const btnLimpiar = document.getElementById("btn-limpiar");        // Botón de limpieza del buscador
 
-  let librosGlobal = [];
+  let librosGlobal = []; // Libros cargados
 
+  // Coloca los libros en el contenedor
   function renderLibros(libros) {
-    container.innerHTML = "";
+    container.innerHTML = ""; // Limpia el contenedor antes de cargar libros
 
+    // Procesa cada libro de la base de datos
     libros.forEach((libro, index) => {
-      const item = document.createElement("div");
-      item.className = "libro-item";
-      item.dataset.index = index;
+      const item = document.createElement("div"); // Crea un contenedor para cada libro
+      item.className = "libro-item"; // Asigna la clase
+      item.dataset.index = index; // Guarda el índice de cada libro
 
+      // Agrega el libro en HTML
       item.innerHTML = `
         <img src="${libro.RUTA_IMAGEN}" alt="${libro.TITULO}">
         <h3>${libro.TITULO}</h3>
@@ -28,20 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
+      // Agrega el botón "Ver más" al contenedor del libro
       item.querySelector(".btn-ver-mas").addEventListener("click", function () {
-        const isExpanded = this.textContent === "Ver menos";
+        const isExpanded = this.textContent === "Ver menos"; // Verifica sí "ver más" está desplegado
 
         if (isExpanded) {
-          renderLibros(librosGlobal); // volver a mostrar todos
+          renderLibros(librosGlobal); // Muestra todo los libros si está expandido
         } else {
-          container.innerHTML = "";
-          const solo = item.cloneNode(true);
-          solo.querySelector(".detalle-libro").style.display = "block";
-          solo.querySelector(".btn-ver-mas").textContent = "Ver menos";
+          container.innerHTML = ""; // Limpia el contenedor
+          const solo = item.cloneNode(true); 
+          solo.querySelector(".detalle-libro").style.display = "block"; // Muestra los detalles de cada libro
+          solo.querySelector(".btn-ver-mas").textContent = "Ver menos"; // Cambia el texto del botón a "Ver menos"
 
-          // Reasignar evento para volver
+          // Agrega un evento para ver los detalles del libro
           solo.querySelector(".btn-ver-mas").addEventListener("click", () => renderLibros(librosGlobal));
-
+          
+          // Muestra únicamente el libro seleccionado en "Ver más"
           container.appendChild(solo);
         }
       });
@@ -51,32 +64,33 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function cargarLibros(query = "") {
-    fetch(`../php/catalogo.php?buscar=${encodeURIComponent(query)}`)
-      .then(response => response.json())
+    fetch(`../php/catalogo.php?buscar=${encodeURIComponent(query)}`) // Obtiene libro según el término a buscar
+      .then(response => response.json()) // Transforma lo obtenido de php a JSON
       .then(libros => {
-        librosGlobal = libros;
+        librosGlobal = libros; // Guarda los libros obtenidos
 
+        // Verifica la existencia de libros para el término buscado
         if (libros.length === 0) {
           container.innerHTML = "<p>No se encontraron libros.</p>";
         } else {
-          renderLibros(libros);
+          renderLibros(libros); // Si hay libros, los muestra
         }
       })
       .catch(err => console.error("Error al cargar los libros:", err));
   }
 
-  // Carga inicial
+  // Carga inicial de libros al cargar la página
   cargarLibros();
 
   formBusqueda.addEventListener("submit", e => {
     e.preventDefault();
-    const query = inputBusqueda.value.trim();
-    cargarLibros(query);
+    const query = inputBusqueda.value.trim(); // Obtiene el texto y limpia la barra de búsqueda
+    cargarLibros(query); // Carga los libros que coincidad con la búsqueda
   });
 
   btnLimpiar.addEventListener("click", () => {
-    inputBusqueda.value = "";
+    inputBusqueda.value = ""; // Limpia la barra de búsqueda
     inputBusqueda.focus();
-    cargarLibros();
+    cargarLibros(); // Carga todos los libros
   });
 });
