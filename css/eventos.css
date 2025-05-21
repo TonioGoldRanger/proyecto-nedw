@@ -7,12 +7,7 @@
 */
 
 /* CONTENEDOR PRINCIPAL DE EVENTOS */
-.evento {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
-  text-align: center;
-}
+
 
 /* GRID DE EVENTOS */
 .eventos-grid {
