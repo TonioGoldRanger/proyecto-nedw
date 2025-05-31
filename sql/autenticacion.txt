@@ -1,0 +1,7 @@
+Para acceder al sistema, se deben utilizar las siguientes credenciales,
+una vez creada la base de datos conforme a lo indicado en el video explicativo:
+
+- Usuario: admin_libreria
+- Contraseña: admin_libreria
+
+Nota: Estas credenciales han sido definidas exclusivamente para fines académicos.
